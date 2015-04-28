@@ -29,6 +29,7 @@ for link in links:
 	url = 'http://www.northamptonshire.gov.uk' + link['href']
 	if '.csv' in url:
 		title = link.text.encode('utf8').strip()
+		print title
 		# create the right strings for the new filename
 		csvYr = title.split(' ')[-4]
 		csvMth = title.split(' ')[-5][:3]
@@ -36,5 +37,5 @@ for link in links:
 		csvMth = convert_mth_strings(csvMth);
 		filename = entity_id + "_" + csvYr + "_" + csvMth + ".csv"
 		todays_date = str(datetime.now())
-		scraperwiki.sqlite.save(unique_keys=['l'], data={"l": url, "f": filename, "d": todays_date })
+		# scraperwiki.sqlite.save(unique_keys=['l'], data={"l": url, "f": filename, "d": todays_date })
 		print filename
