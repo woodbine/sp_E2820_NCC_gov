@@ -26,9 +26,9 @@ soup = BeautifulSoup(html)
 links = soup.findAll('a', href=True)
 
 for link in links:
-	url = link['href']
+	url = 'http://www.northamptonshire.gov.uk' + link['href']
 	if '.csv' in url:
-		title = link.contents[0]
+		title = link.contents[0].encode('utf8').strip()
 		# create the right strings for the new filename
 		csvYr = title.split(' ')[-1]
 		csvMth = title.split(' ')[-2][:3]
