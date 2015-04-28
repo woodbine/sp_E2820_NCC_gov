@@ -30,7 +30,6 @@ for link in links:
 	if '.csv' in url:
 		title = link.encode_contents(formatter='html').replace('&nbsp;',' ') #  gets rid of erroneous &nbsp; chars
 		title = title.upper().strip()
-		print title
 		# create the right strings for the new filename
 		csvYr = title.split(' ')[-4]
 		csvMth = title.split(' ')[-5][:3]
