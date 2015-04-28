@@ -28,10 +28,10 @@ links = soup.findAll('a', href=True)
 for link in links:
 	url = 'http://www.northamptonshire.gov.uk' + link['href']
 	if '.csv' in url:
-		title = link.contents[0].encode('utf8').strip()
+		title = link.text.encode('utf8').strip()
 		# create the right strings for the new filename
-		csvYr = title.split(' ')[-1]
-		csvMth = title.split(' ')[-2][:3]
+		csvYr = title.split(' ')[-4]
+		csvMth = title.split(' ')[-5][:3]
 		csvMth = csvMth.upper()
 		csvMth = convert_mth_strings(csvMth);
 		filename = entity_id + "_" + csvYr + "_" + csvMth + ".csv"
