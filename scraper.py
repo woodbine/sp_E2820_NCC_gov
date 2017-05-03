@@ -84,7 +84,7 @@ def convert_mth_strings ( mth_string ):
 #### VARIABLES 1.0
 
 entity_id = "E2820_NCC_gov"
-url = "http://www.northamptonshire.gov.uk/en/councilservices/Council/transparency/open-data/Pages/expenditure-exceeding-%C2%A3500.aspx"
+url = "http://www3.northamptonshire.gov.uk/councilservices/council-and-democracy/transparency/open-data-our-publications/Pages/expenditure-exceeding-%C2%A3500.aspx"
 errors = 0
 data = []
 
@@ -98,7 +98,7 @@ soup = BeautifulSoup(html, 'lxml')
 
 links = soup.findAll('a', href=True)
 for link in links:
-    url = 'http://www.northamptonshire.gov.uk' + link['href']
+    url = 'http://www3.northamptonshire.gov.uk' + link['href']
     if '.csv' in url:
         title = link.encode_contents(formatter='html').replace('&nbsp;',' ')
         title = title.upper().strip()
