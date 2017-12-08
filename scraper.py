@@ -100,10 +100,9 @@ links = soup.findAll('a', href=True)
 for link in links:
     url = 'http://www3.northamptonshire.gov.uk' + link['href']
     if '.csv' in url:
-        title = link.encode_contents(formatter='html').replace('&nbsp;',' ')
-        title = title.upper().strip()
-        csvYr = title.split(' ')[-4]
-        csvMth = title.split(' ')[-5][:3]
+        title = link.text.split('-')[-1].strip()
+        csvYr = title.split()[1]
+        csvMth = title[:3]
         csvMth = convert_mth_strings(csvMth.upper())
         data.append([csvYr, csvMth, url])
 
